@@ -100,7 +100,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           alt="Industrial Gym Atmosphere"
           fill
           priority
-          className="object-cover object-center brightness-100 saturate-100 scale-135"
+          className="object-cover object-center brightness-100 saturate-100 scale-125"
         />
       </div>
 

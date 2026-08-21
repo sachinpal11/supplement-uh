@@ -85,10 +85,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLogin, onOpenVerify }) => 
 
         {/* Right Navigation Group */}
         <div className="flex items-center gap-4 md:gap-6">
-          {/* Cart Button */}
+          {/* Cart Button (Desktop only) */}
           <button
             type="button"
-            className="flex items-center gap-2 text-[12px] font-semibold py-1.5 px-3.5 uppercase tracking-[2px] text-white border border-white/40 hover:bg-white hover:text-black transition-colors rounded-xs cursor-pointer group"
+            className="hidden md:flex items-center gap-2 text-[12px] font-semibold py-1.5 px-3.5 uppercase tracking-[2px] text-white border border-white/40 hover:bg-white hover:text-black transition-colors rounded-xs cursor-pointer group"
             aria-label="Shopping Cart"
           >
             <svg className="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth="2">
@@ -122,17 +122,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLogin, onOpenVerify }) => 
               {item.label}
             </a>
           ))}
-
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2 text-sm font-bold uppercase tracking-[3px] text-white bg-white/10 hover:bg-white hover:text-black border border-white/60 px-6 py-2.5 transition-colors cursor-pointer"
-          >
-            <svg className="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-            </svg>
-            <span>CART (0)</span>
-          </button>
 
           <button
             onClick={() => {
