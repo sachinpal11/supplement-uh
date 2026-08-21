@@ -88,7 +88,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     <section
       ref={sectionRef}
       id="hero"
-      className="relative w-full h-[90vh] hero-aspect-responsive sm:h-[90vh] md:h-[110vh] min-h-[300px] sm:min-h-[750px] max-h-[1200px] overflow-hidden bg-[#0A0A0A] select-none"
+      className="relative w-full h-[80vh] hero-aspect-responsive sm:h-[75vh] md:h-[110vh] min-h-[300px] sm:min-h-[550px] max-h-[1200px] overflow-hidden bg-[#0A0A0A] select-none"
     >
       {/* LAYER 1: Background Image (GSAP Responsive Parallax) */}
       <div
@@ -100,7 +100,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           alt="Industrial Gym Atmosphere"
           fill
           priority
-          className="object-cover object-center brightness-100 saturate-100 scale-105"
+          className="object-cover object-center brightness-100 saturate-100 scale-135"
         />
       </div>
 
@@ -121,7 +121,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         ref={figureRef}
         className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[20] w-full max-w-5xl md:max-w-7xl h-[80vh] md:h-[84vh] flex justify-center items-end pointer-events-none will-change-transform"
       >
-        <div className="relative w-full h-full transform scale-130 sm:scale-115 md:scale-120 origin-bottom">
+        <div className="relative w-full h-full transform scale-[1.45] sm:scale-115 md:scale-120 origin-bottom">
           <Image
             src="/bodybuilder-hero.png"
             alt="United Hormone Athlete"
