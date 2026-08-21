@@ -24,9 +24,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLogin, onOpenVerify }) => 
 
   const navLinks = [
     { label: "HOME", href: "#hero" },
-    { label: "PRODUCT", href: "#products" },
-    { label: "REVIEWS", href: "#reviews" },
-    { label: "CONTACT", href: "#contact" },
+    { label: "SHOP", href: "#products" },
+    { label: "ABOUT US", href: "#about" },
+    { label: "CONTACT US", href: "#contact" },
+    { label: "FAQS", href: "#faq" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

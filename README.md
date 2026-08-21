@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# United Hormone — Premium Performance & Pharmaceutical Web Application
 
-## Getting Started
+A modern, high-performance web showcase for **United Hormone**, designed with ultra-premium aesthetics, smooth GSAP animations, Lenis smooth scrolling, and full mobile responsiveness.
 
-First, run the development server:
+---
+
+## 🌟 Key Features & Components
+
+- **Cinematic Hero Section (`HeroSection.tsx`)**
+  - High-impact visual header with dark gradient overlays, subtle motion effects, and quick-action CTAs to explore products or verify batch authenticity.
+
+- **Brand Mindset & Story (`AboutSection.tsx`)**
+  - Interactive multi-layer parallax section driven by GSAP ScrollTrigger, highlighting pharmaceutical integrity and hardcore athletic performance.
+
+- **Brand Values Marquee (`MarqueeSection.tsx`)**
+  - Continuous infinite text marquee showcasing brand pillars: *HPLC Verified*, *Pharmaceutical Grade*, *99%+ Purity*, *Zero Fillers*.
+
+- **Interactive Product Categories (`ProductCategoriesSection.tsx`)**
+  - Showcases product lines (**Anabolics**, **SARMs**, **Peptides**) with dynamic, mouse-following 1:1 image preview overlays.
+
+- **Assay Quality & Standards (`QualitySection.tsx`)**
+  - Multi-column presentation outlining HPLC assay testing, sterile filtration, and batch consistency standards.
+
+- **Featured & New Arrivals Catalogs (`ProductCatalog.tsx` & `ProductDetailModal.tsx`)**
+  - Clean product cards with interactive modals presenting compound specifications, dosages, and HPLC purity reports.
+
+- **Product Authenticity Verification Portal (`VerifySection.tsx` & `VerifyModal.tsx`)**
+  - Interactive modal enabling customers to input serial batch codes to verify third-party lab testing and certificate of analysis (COA).
+
+- **Frequently Asked Questions (`FaqSection.tsx`)**
+  - Accordion FAQ addressing authenticity checks, ordering, shipping, and lab testing parameters with smooth GSAP background parallax.
+
+- **Adaptive Navigation & Footer (`Navbar.tsx` & `Footer.tsx`)**
+  - Glassmorphic fixed navigation bar with mobile drawer support, direct section anchors (`#hero`, `#products`, `#about`, `#contact`, `#faq`), and quick action controls.
+
+---
+
+## 🛠️ Tech Stack & Libraries
+
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
+- **UI & React**: [React 19](https://react.dev/)
+- **Animations**: [GSAP (GreenSock Animation Platform)](https://gsap.com/) & [ScrollTrigger](https://gsap.com/scrolltrigger/)
+- **Smooth Scroll**: [@studio-freight/lenis](https://lenis.darkroom.engineering/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) & Vanilla CSS Design Tokens
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Ensure you have **Node.js** (v18.x or higher) and `npm` installed.
+
+### Installation
+
+1. Navigate to the project directory:
+   ```bash
+   cd main
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development Server
+
+Run the local development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Production Build
 
-## Learn More
+To create an optimized production build:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run the built production app locally:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm start
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+main/
+├── app/
+│   ├── components/
+│   │   ├── AboutSection.tsx            # Brand philosophy & parallax story
+│   │   ├── FaqSection.tsx              # Interactive accordion FAQ
+│   │   ├── Footer.tsx                  # Footer & contact section
+│   │   ├── HeroSection.tsx            # Main hero banner
+│   │   ├── Logo.tsx                    # Reusable SVG brand logo
+│   │   ├── MarqueeSection.tsx          # Tilted infinite scroll marquee
+│   │   ├── Navbar.tsx                  # Fixed glassmorphic navigation bar
+│   │   ├── ProductCatalog.tsx          # Catalog grid for products
+│   │   ├── ProductCategoriesSection.tsx# Category cards with hover preview
+│   │   ├── ProductDetailModal.tsx      # Compound detail modal
+│   │   ├── QualitySection.tsx          # Quality & lab standards breakdown
+│   │   ├── SmoothScroll.tsx            # Lenis smooth scrolling wrapper
+│   │   ├── VerifyModal.tsx             # Serial batch verification modal
+│   │   └── VerifySection.tsx           # Verification CTA banner
+│   ├── layout.tsx                      # Root layout & font configurations
+│   ├── page.tsx                        # Main landing page route
+│   └── globals.css                     # Design system tokens & global styling
+├── public/                             # Static images, WebP assets & icons
+└── package.json                        # Dependencies & scripts configuration
+```
+
+---
+
+## 📜 License
+
+Private & Proprietary — United Hormone. All rights reserved.

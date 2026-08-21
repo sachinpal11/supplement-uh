@@ -150,7 +150,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="text-[11px] sm:text-[12px] md:text-[13px] font-bold uppercase tracking-[2px] sm:tracking-[2.5px] text-[#0A0A0A] bg-white hover:bg-white/90 px-5 py-2.5 sm:px-6 sm:py-2.5 border border-white transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 group whitespace-nowrap shadow-[0_4px_14px_rgba(0,0,0,0.5)]"
           >
             EXPLORE PRODUCTS
-            <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+
           </button>
 
           {/* Small Logo Anchor */}
@@ -163,7 +163,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="text-[11px] sm:text-[12px] md:text-[13px] font-bold uppercase tracking-[2px] sm:tracking-[2.5px] text-white bg-[#0A0A0A]/80 hover:bg-white hover:text-[#0A0A0A] px-5 py-2.5 sm:px-6 sm:py-2.5 border border-white/60 hover:border-white transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 group whitespace-nowrap shadow-[0_4px_14px_rgba(0,0,0,0.5)]"
           >
             VERIFY PRODUCT
-            <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+
           </button>
         </div>
       </div>
