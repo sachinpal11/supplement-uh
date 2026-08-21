@@ -49,7 +49,7 @@ export const ProductCategoriesSection: React.FC = () => {
       name: "ANABOLICS",
       tag: "8+",
       url: "https://unitedhormone.com/wp-content/uploads/2026/01/Ibutamoren-MK-677-United-Hormone-280x280.webp",
-      image: "/product-01.jpg",
+      image: "/anabolics-category.webp",
     },
     {
       id: "sarms",
@@ -57,7 +57,7 @@ export const ProductCategoriesSection: React.FC = () => {
       name: "SARMS",
       tag: "4+",
       url: "https://unitedhormone.com/wp-content/uploads/2026/06/Mast-P-100-United-Hormone-280x280.webp",
-      image: "/product-02.jpg",
+      image: "/sarms-category.webp",
     },
     {
       id: "peptides",
@@ -65,7 +65,7 @@ export const ProductCategoriesSection: React.FC = () => {
       name: "PEPTIDES",
       tag: "6+",
       url: "https://unitedhormone.com/wp-content/uploads/2026/06/Boldenone-250-United-Hormone-280x280.webp",
-      image: "/product-03.jpg",
+      image: "/peptides-category.webp",
     },
   ];
 
