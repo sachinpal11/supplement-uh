@@ -109,13 +109,13 @@ export const AboutSection: React.FC = () => {
           className="relative text-center max-w-5xl mx-auto px-4 z-20 will-change-transform"
         >
           <h3 className="font-bebas text-[clamp(32px,4.8vw,60px)] leading-[1.02] tracking-wider uppercase text-white drop-shadow-[0_6px_35px_rgba(0,0,0,0.95)]">
-            THE PHYSIQUE IS THE RESULT.
+            ENGINEERED WITH PURPOSE.
             <br />
-            <span className="text-white/90">THE DISCIPLINE IS THE DIFFERENCE.</span>
+            <span className="text-white/90">BUILT WITHOUT COMPROMISE.</span>
           </h3>
 
           <p className="mt-5 md:mt-7 max-w-lg mx-auto text-[12px] md:text-[13px] text-[#9CA3AF] leading-[1.65] tracking-wide font-sans text-center drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-            The relentless pursuit of perfection. The discipline is the armor against average. True physiological transformation occurs in the spaces between comfort and failure.
+            United Hormone is built for people who take their training seriously. We focus on quality, consistency, and authenticity at every step, from carefully selected ingredients to controlled manufacturing and secure product verification. Because behind every physique is hard work, and every detail counts.
           </p>
         </div>
 
