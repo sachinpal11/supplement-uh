@@ -27,31 +27,27 @@ export const VerifyModal: React.FC<VerifyModalProps> = ({ isOpen, onClose }) => 
 
   if (!isOpen) return null;
 
-  const handleVerify = (e: React.FormEvent) => {
+  const handleVerify = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputCode.trim()) return;
 
     setLoading(true);
     setSearched(false);
 
-    setTimeout(() => {
-      const codeClean = inputCode.trim().toUpperCase();
+    try {
+      const res = await fetch("/api/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code: inputCode.trim() }),
+      });
+      const data = await res.json();
       setLoading(false);
       setSearched(true);
 
-      if (codeClean.includes("UH") || codeClean.length >= 4) {
-        setResult({
-          code: codeClean,
-          verified: true,
-          productName: "TEST-MAX 250 (TESTOSTERONE ENANTHATE)",
-          batchNumber: `BATCH #${codeClean}-2026-X`,
-          mfgDate: "JAN 2026",
-          expDate: "JAN 2029",
-          hplcConcentration: "250.4 MG / ML",
-          purity: "99.85%",
-          sealStatus: "AUTHENTIC & VERIFIED — PASS",
-        });
+      if (data.success && data.result) {
+        setResult(data.result);
       } else {
+        const codeClean = inputCode.trim().toUpperCase();
         setResult({
           code: codeClean,
           verified: false,
@@ -64,7 +60,10 @@ export const VerifyModal: React.FC<VerifyModalProps> = ({ isOpen, onClose }) => 
           sealStatus: "UNAUTHORIZED CODE — CAUTION",
         });
       }
-    }, 600);
+    } catch {
+      setLoading(false);
+      setSearched(true);
+    }
   };
 
   const fillSampleCode = (code: string) => {
