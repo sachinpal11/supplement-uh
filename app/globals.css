@@ -134,10 +134,20 @@ body {
   animation-play-state: paused;
 }
 
-/* Responsiveness: Target all mobile & intermediate tablet viewports up to 767px (e.g. 709px x 768px) with 88vh height and 650px min-height */
-@media (max-width: 767px) {
+/* Compact height strictly for extra-small mobile viewports up to 400px width */
+@media (max-width: 400px) {
+  .hero-aspect-responsive {
+    height: 68vh !important;
+    min-height: 480px !important;
+    max-height: 600px !important;
+  }
+}
+
+/* Increased height as before for screens above 400px width up to 767px */
+@media (min-width: 401px) and (max-width: 767px) {
   .hero-aspect-responsive {
     height: 88vh !important;
     min-height: 650px !important;
+    max-height: 715px !important;
   }
 }
