@@ -1,8 +1,7 @@
-"use client";
-
 import React, { useState } from "react";
 import Image from "next/image";
 import { ProductItem } from "./ProductCatalog";
+import { useCart } from "@/context/CartContext";
 
 export interface ProductDetailModalProps {
   product: ProductItem | null;
@@ -17,10 +16,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const { addToCart, openWhatsAppCheckout } = useCart();
 
   if (!isOpen || !product) return null;
 
-  // 2 distinct images for the Amazon/Flipkart gallery
   const galleryImages = [
     { src: product.image, label: "MAIN PRODUCT RENDER" },
     { src: "/thirdcomponent.png", label: "LAB FORMULATION CLOSEUP" },
@@ -34,8 +33,37 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
     setQuantity((prev) => prev + 1);
   };
 
+  const handleAddToCart = () => {
+    addToCart(
+      {
+        id: product.id,
+        title: product.title,
+        subtitle: product.subtitle || "UNITED HORMONE",
+        sku: product.sku,
+        price: product.price,
+        image: product.image,
+      },
+      quantity
+    );
+    onClose();
+  };
+
+  const handleWhatsAppCheckout = () => {
+    onClose();
+    openWhatsAppCheckout({
+      id: product.id,
+      title: product.title,
+      subtitle: product.subtitle || "UNITED HORMONE",
+      sku: product.sku,
+      price: product.price,
+      numericPrice: parseFloat(product.price.replace(/[^0-9.]/g, "")) || 0,
+      image: product.image,
+      quantity,
+    });
+  };
+
   return (
-    <div className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-hidden animate-fade-in">
+    <div className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-hidden animate-fade-in font-sans select-none">
       {/* Background Click to Dismiss */}
       <div
         className="fixed inset-0 -z-10"
@@ -43,7 +71,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         aria-hidden="true"
       />
 
-      {/* Main Modal Card (Fixed 90vh Height, Zero Scroll) */}
+      {/* Main Modal Card */}
       <div className="bg-[#F3F2EE] text-[#0A0A0A] max-w-[1100px] w-full h-[90vh] max-h-[90vh] rounded-3xl overflow-hidden border border-black/15 shadow-2xl relative flex flex-col md:flex-row select-none">
         
         {/* Close Card Button */}
@@ -58,10 +86,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           </svg>
         </button>
 
-        {/* Left Column: Amazon/Flipkart E-Commerce Gallery (Hero Showcase Stage + 2 Small Thumbnails) */}
+        {/* Left Column Gallery */}
         <div className="w-full md:w-1/2 h-1/2 md:h-full p-4 md:p-6 bg-[#EAE8E3]/70 flex flex-col justify-between border-b md:border-b-0 md:border-r border-black/10 overflow-hidden">
           
-          {/* Main Hero Showcase Stage */}
           <div className="w-full flex-1 bg-[#0A0A0A] rounded-2xl overflow-hidden relative border border-black/5 min-h-[220px]">
             <Image
               src={galleryImages[selectedImageIndex].src}
@@ -73,7 +100,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             />
           </div>
 
-          {/* 2 Small Thumbnail Selector Bar (Strict 1:1 Aspect Ratio) */}
           <div className="mt-3.5 flex items-center gap-3 flex-shrink-0">
             {galleryImages.map((imgItem, idx) => (
               <button
@@ -99,10 +125,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
         </div>
 
-        {/* Right Column: Spec & Order Actions (Fits 90vh, Zero Scroll) */}
+        {/* Right Column Specs & Order Actions */}
         <div className="w-full md:w-1/2 h-1/2 md:h-full p-6 md:p-8 flex flex-col justify-between font-sans overflow-hidden">
           <div className="flex flex-col justify-between h-full">
-            {/* Top Meta */}
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-[9px] md:text-[10px] font-sans font-bold tracking-[1.5px] uppercase px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-800 border border-emerald-500/20">
@@ -113,12 +138,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </span>
               </div>
 
-              {/* Product Title */}
               <h2 className="font-bebas text-3xl md:text-5xl leading-none uppercase tracking-wide text-[#0A0A0A] mb-2">
                 {product.title}
               </h2>
 
-              {/* Rating Bar */}
               <div className="flex items-center gap-2 mb-3">
                 <div className="flex text-amber-500 text-xs md:text-sm tracking-tight">★★★★★</div>
                 <span className="font-sans text-xs font-bold text-[#0A0A0A]">
@@ -129,7 +152,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </span>
               </div>
 
-              {/* SKU & Price */}
               <div className="flex items-center justify-between py-2.5 border-y border-black/10 text-xs font-sans uppercase tracking-wider my-3 text-black/70">
                 <div>
                   <span className="text-black/40 block text-[9px]">PRODUCT SKU</span>
@@ -141,7 +163,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </div>
               </div>
 
-              {/* Extended Details */}
               <div className="my-2">
                 <h4 className="text-[10px] font-bold tracking-[1.5px] uppercase text-black/50 mb-1">
                   SPECIFICATIONS
@@ -152,9 +173,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
             </div>
 
-            {/* Bottom Actions Area */}
             <div className="pt-3 border-t border-black/10 mt-auto">
-              {/* Quantity Selector */}
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-bold uppercase tracking-[1.5px] text-black/70">
                   QUANTITY:
@@ -163,7 +182,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   <button
                     type="button"
                     onClick={handleQuantityDecrease}
-                    className="w-8 h-8 flex items-center justify-center font-bold text-black hover:bg-black/10 transition-colors"
+                    className="w-8 h-8 flex items-center justify-center font-bold text-black hover:bg-black/10 transition-colors cursor-pointer"
                   >
                     -
                   </button>
@@ -173,17 +192,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   <button
                     type="button"
                     onClick={handleQuantityIncrease}
-                    className="w-8 h-8 flex items-center justify-center font-bold text-black hover:bg-black/10 transition-colors"
+                    className="w-8 h-8 flex items-center justify-center font-bold text-black hover:bg-black/10 transition-colors cursor-pointer"
                   >
                     +
                   </button>
                 </div>
               </div>
 
-              {/* Action Buttons: Add to Cart & Buy via WhatsApp */}
               <div className="flex flex-col sm:flex-row gap-2.5">
                 <button
                   type="button"
+                  onClick={handleAddToCart}
                   className="w-full sm:w-1/2 py-3 px-4 bg-[#0A0A0A] hover:bg-[#222222] text-white font-sans text-xs font-bold tracking-[2px] uppercase flex items-center justify-center gap-2 rounded-xl transition-all duration-300 cursor-pointer border border-black/10"
                 >
                   <svg className="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth="2">
@@ -194,6 +213,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
                 <button
                   type="button"
+                  onClick={handleWhatsAppCheckout}
                   className="w-full sm:w-1/2 py-3 px-4 bg-[#25D366] hover:bg-[#0A0A0A] text-[#0A0A0A] hover:text-[#25D366] font-sans text-xs font-extrabold tracking-[1.5px] uppercase flex items-center justify-center gap-2 rounded-xl transition-all duration-300 cursor-pointer border border-[#0A0A0A] group/waBtn"
                 >
                   <svg className="w-4 h-4 fill-current text-[#0A0A0A] group-hover/waBtn:text-[#25D366] transition-colors" viewBox="0 0 24 24">

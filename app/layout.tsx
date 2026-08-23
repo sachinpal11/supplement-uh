@@ -27,6 +27,10 @@ export const metadata: Metadata = {
   ],
 };
 
+import { CartProvider } from "@/context/CartContext";
+import { CartDrawer } from "@/app/components/CartDrawer";
+import { WhatsAppModal } from "@/app/components/WhatsAppModal";
+
 export default function RootLayout({
   children,
 }: {
@@ -35,10 +39,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${bebasNeue.variable} ${inter.variable} dark h-full antialiased selection:bg-[#C8B84D]/30 selection:text-white`}
     >
-      <body className="min-h-full flex flex-col bg-[#0A0A0A] text-[#F0EDE8] font-sans overflow-x-hidden">
-        {children}
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-[#0A0A0A] text-[#F0EDE8] font-sans overflow-x-hidden">
+        <CartProvider>
+          {children}
+          <CartDrawer />
+          <WhatsAppModal />
+        </CartProvider>
       </body>
     </html>
   );

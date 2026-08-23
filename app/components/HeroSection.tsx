@@ -110,9 +110,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         className="absolute top-[25%] sm:top-[16%] md:top-[18%] left-1/2 -translate-x-1/2 z-[10] pointer-events-none w-full text-center px-2 sm:px-4 will-change-transform"
       >
         <h1 className="font-bebas scale-125 sm:scale-100 text-[clamp(54px,14.5vw,220px)] font-bold leading-[0.82] sm:leading-[0.85] tracking-[2px] sm:tracking-[4px] uppercase text-[#F0EDE8]/[0.9] text-shadow-hero">
-          PRECISION
+          <span className="">United</span>
           <br />
-          OVER <span className="md:ml-10">HYPE</span>
+          HORMONE
         </h1>
       </div>
 
@@ -137,9 +137,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Sub-headline */}
         <div className="absolute left-1/2 -translate-x-1/2 top-[74%] sm:top-[76%] md:top-[78%] w-full px-4 text-center">
           <h2 className="text-[clamp(15px,2.2vw,32px)] font-medium leading-[1.3] tracking-[1.2px] sm:tracking-[1.8px] uppercase text-[#E8E4DD]/95 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-            BUILT FOR THE DISCIPLINE
+            BUILT FOR THE STAGE.
             <br />
-            BEHIND THE PHYSIQUE.
+            ENGINEERED FOR THE ELITE.
           </h2>
         </div>
 

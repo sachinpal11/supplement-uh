@@ -14,6 +14,9 @@ export interface ProductItem {
   subtitle?: string;
   sku: string;
   price: string;
+  numericPrice?: number;
+  category?: string;
+  inStock?: boolean;
   rating: number;
   reviewsCount: number;
   image: string;
@@ -85,6 +88,8 @@ const defaultProducts: ProductItem[] = [
   },
 ];
 
+import { useCart } from "@/context/CartContext";
+
 export const ProductCatalog: React.FC<ProductCatalogProps> = ({
   title = "THE UNITED HORMONE CATALOG",
   subtitle = "UNITED HORMONE OFFICIAL COLLECTION",
@@ -95,6 +100,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
   const parallaxHeaderRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
+  const { addToCart, openWhatsAppCheckout } = useCart();
 
   useEffect(() => {
     if (!sectionRef.current || !parallaxHeaderRef.current) return;
@@ -206,7 +212,14 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
-                    setSelectedProduct(item);
+                    addToCart({
+                      id: item.id,
+                      title: item.title,
+                      subtitle: item.subtitle || "UNITED HORMONE",
+                      sku: item.sku,
+                      price: item.price,
+                      image: item.image,
+                    });
                   }}
                   className="w-full py-2.5 px-3 bg-[#0A0A0A] hover:bg-[#222222] text-white font-sans text-[11px] font-bold tracking-[1.5px] uppercase flex items-center justify-center gap-2 rounded-xl transition-all duration-300 cursor-pointer border border-black/10"
                 >
@@ -220,7 +233,16 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
-                    setSelectedProduct(item);
+                    openWhatsAppCheckout({
+                      id: item.id,
+                      title: item.title,
+                      subtitle: item.subtitle || "UNITED HORMONE",
+                      sku: item.sku,
+                      price: item.price,
+                      numericPrice: parseFloat(item.price.replace(/[^0-9.]/g, "")) || 0,
+                      image: item.image,
+                      quantity: 1,
+                    });
                   }}
                   className="w-full py-2.5 px-3 bg-[#25D366] hover:bg-[#0A0A0A] text-[#0A0A0A] hover:text-[#25D366] font-sans text-[10px] font-extrabold tracking-[1.5px] uppercase flex items-center justify-center gap-2 rounded-xl transition-all duration-300 cursor-pointer border border-[#0A0A0A] group/wa"
                 >

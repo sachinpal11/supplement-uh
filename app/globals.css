@@ -140,3 +140,11 @@ body {
     height: 100vh !important;
   }
 }
+
+/* Responsiveness: Increase hero height on mobile viewports with height < 725px to prevent element overlapping */
+@media (max-width: 767px) and (max-height: 724px) {
+  .hero-aspect-responsive {
+    height: 90vh !important;
+    min-height: 600px !important;
+  }
+}
