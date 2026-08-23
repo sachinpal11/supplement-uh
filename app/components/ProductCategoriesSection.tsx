@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -48,7 +49,7 @@ export const ProductCategoriesSection: React.FC = () => {
       number: "01",
       name: "ANABOLICS",
       tag: "8+",
-      url: "https://unitedhormone.com/wp-content/uploads/2026/01/Ibutamoren-MK-677-United-Hormone-280x280.webp",
+      shopUrl: "/shop?category=Mass%20Builders",
       image: "/anabolics-category.webp",
     },
     {
@@ -56,7 +57,7 @@ export const ProductCategoriesSection: React.FC = () => {
       number: "02",
       name: "SARMS",
       tag: "4+",
-      url: "https://unitedhormone.com/wp-content/uploads/2026/06/Mast-P-100-United-Hormone-280x280.webp",
+      shopUrl: "/shop?category=SARMs",
       image: "/sarms-category.webp",
     },
     {
@@ -64,7 +65,7 @@ export const ProductCategoriesSection: React.FC = () => {
       number: "03",
       name: "PEPTIDES",
       tag: "6+",
-      url: "https://unitedhormone.com/wp-content/uploads/2026/06/Boldenone-250-United-Hormone-280x280.webp",
+      shopUrl: "/shop?category=Peptides",
       image: "/peptides-category.webp",
     },
   ];
@@ -128,19 +129,16 @@ export const ProductCategoriesSection: React.FC = () => {
             </h2>
           </div>
 
-          {/* Clean 3 Category Name Rows (No Dropdown, No Description) */}
+          {/* 3 Category Name Rows -> Redirects to Shop Page with category filter */}
           <div className="flex flex-col space-y-1 relative z-10">
             {categories.map((item) => (
-              <a
+              <Link
                 key={item.id}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={item.shopUrl}
                 onMouseEnter={() => setHoveredCategory(item.id)}
                 className="group py-4 sm:py-5 md:py-6 border-b border-black/15 flex items-center justify-between transition-all duration-300 hover:pl-3 cursor-pointer"
               >
                 <div className="flex items-center gap-3 sm:gap-4">
-
                   <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl leading-none uppercase tracking-wide text-[#0A0A0A] group-hover:text-black transition-colors">
                     {item.name}
                   </h3>
@@ -162,14 +160,15 @@ export const ProductCategoriesSection: React.FC = () => {
                     />
                   </svg>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Floating 1:1 Aspect Ratio Preview Image with Top-Right Tag on Image */}
           <div
-            className={`absolute right-6 md:right-14 z-20 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 aspect-square rounded-2xl overflow-hidden border-2 border-black/20 shadow-2xl bg-black pointer-events-none transition-opacity duration-200 ${hoveredCategory ? "opacity-100 scale-100" : "opacity-0 scale-95"
-              }`}
+            className={`absolute right-6 md:right-14 z-20 w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 aspect-square rounded-2xl overflow-hidden border-2 border-black/20 shadow-2xl bg-black pointer-events-none transition-opacity duration-200 ${
+              hoveredCategory ? "opacity-100 scale-100" : "opacity-0 scale-95"
+            }`}
             style={{
               top: 0,
               transform: `translateY(${Math.max(30, Math.min(mouseY - 128, 500))}px)`,
@@ -179,8 +178,9 @@ export const ProductCategoriesSection: React.FC = () => {
             {categories.map((cat) => (
               <div
                 key={cat.id}
-                className={`absolute inset-0 transition-opacity duration-300 ${hoveredCategory === cat.id ? "opacity-100" : "opacity-0"
-                  }`}
+                className={`absolute inset-0 transition-opacity duration-300 ${
+                  hoveredCategory === cat.id ? "opacity-100" : "opacity-0"
+                }`}
               >
                 <Image
                   src={cat.image}

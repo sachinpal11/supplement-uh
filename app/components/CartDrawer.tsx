@@ -127,7 +127,7 @@ export const CartDrawer: React.FC = () => {
           ref={drawerRef}
           className="w-screen max-w-md bg-[#0A0A0A] border-l border-white/10 text-[#F0EDE8] shadow-2xl flex flex-col justify-between transform translate-x-full"
         >
-          
+
           {/* Header */}
           <div className="p-6 border-b border-white/10 flex items-center justify-between bg-gradient-to-b from-[#181818] to-[#101010]">
             <div className="flex items-center gap-3">
@@ -150,27 +150,8 @@ export const CartDrawer: React.FC = () => {
             </button>
           </div>
 
-          {/* Free Shipping Progress Indicator */}
-          <div className="px-6 py-3 bg-[#161616] border-b border-white/5 font-sans">
-            <div className="flex justify-between items-center text-xs mb-1.5 font-medium">
-              {subtotal >= freeShippingThreshold ? (
-                <span className="text-emerald-400 font-bold tracking-wide uppercase flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-ping" />
-                  YOU QUALIFY FOR FREE DISCREET SHIPPING!
-                </span>
-              ) : (
-                <span className="text-white/70">
-                  Add <strong className="text-white">${(freeShippingThreshold - subtotal).toFixed(2)}</strong> more for FREE shipping
-                </span>
-              )}
-            </div>
-            <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-white via-neutral-200 to-emerald-400 transition-all duration-500 rounded-full"
-                style={{ width: `${progressPercent}%` }}
-              />
-            </div>
-          </div>
+
+
 
           {/* Cart Item List */}
           <div className="flex-1 overflow-y-auto p-6 space-y-4 font-sans">
