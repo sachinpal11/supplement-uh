@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
 import { useCart } from "@/context/CartContext";
 import gsap from "gsap";
@@ -9,12 +10,21 @@ import gsap from "gsap";
 interface NavbarProps {
   onOpenLogin: () => void;
   onOpenVerify: () => void;
+  transparentOnTop?: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenLogin, onOpenVerify }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  onOpenLogin,
+  onOpenVerify,
+  transparentOnTop,
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { totalCount, setIsCartOpen } = useCart();
+  const pathname = usePathname();
+
+  const isTransparentOnTop =
+    transparentOnTop !== undefined ? transparentOnTop : pathname === "/";
 
   const overlayRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
@@ -74,18 +84,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLogin, onOpenVerify }) => 
   const navLinks = [
     { label: "HOME", href: "/" },
     { label: "SHOP", href: "/shop" },
-    { label: "ABOUT US", href: "/#about" },
-    { label: "CONTACT US", href: "/#contact" },
-    { label: "FAQS", href: "/#faq" },
+    { label: "ABOUT US", href: "/about-us" },
+    { label: "CONTACT US", href: "/contact-us" },
+    { label: "FAQS", href: "/contact-us#faq" },
   ];
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-12 transition-all duration-300 ${isScrolled
-          ? "bg-[#0A0A0A]/85 backdrop-blur-md border-b border-white/10 py-4 shadow-xl"
-          : "bg-transparent backdrop-blur-none border-b border-transparent py-5"
-          }`}
+        className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-12 transition-all duration-300 ${
+          isScrolled
+            ? "bg-[#0A0A0A]/95 backdrop-blur-md border-b border-white/15 py-3.5 shadow-2xl"
+            : isTransparentOnTop
+            ? "bg-transparent border-b border-transparent py-4 shadow-none"
+            : "bg-[#0A0A0A] border-b border-white/10 py-4 shadow-lg"
+        }`}
       >
         {/* Left Navigation Group (Desktop Only - XL screens and above) */}
         <div className="hidden xl:flex items-center gap-8">
@@ -113,7 +126,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLogin, onOpenVerify }) => 
         </button>
 
         {/* Center Logo */}
-        <Link href="/" className="absolute left-1/2 -translate-x-1/2 cursor-pointer">
+        <Link href="/" className="absolute left-1/2 -translate-x-1/2 cursor-pointer p-1">
           <Logo size="md" />
         </Link>
 

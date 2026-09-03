@@ -23,7 +23,7 @@ export const Logo: React.FC<LogoProps> = ({
 
   return (
     <div
-      className={`flex items-center justify-center select-none filter drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)] ${className}`}
+      className={`flex items-center justify-center select-none filter drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)] p-1 ${className}`}
     >
       <div className="relative flex-shrink-0" style={{ height: `${height}px`, width: `${width}px` }}>
         <Image
@@ -32,7 +32,7 @@ export const Logo: React.FC<LogoProps> = ({
           fill
           priority
           sizes="(max-width: 768px) 50px, 80px"
-          className="object-contain hover:scale-105 transition-transform duration-200"
+          className="object-contain hover:scale-85 scale-80 transition-transform duration-200"
         />
       </div>
 

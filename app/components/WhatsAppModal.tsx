@@ -23,7 +23,7 @@ export const WhatsAppModal: React.FC = () => {
 
   if (!isWhatsAppModalOpen) return null;
 
-  const receiverWhatsApp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "15551234567";
+  const receiverWhatsApp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "353892051142";
 
   // Calculate pricing breakdown
   const currentSubtotal = checkoutItem ? checkoutItem.numericPrice : subtotal;
@@ -60,17 +60,17 @@ export const WhatsAppModal: React.FC = () => {
     const message = `*NEW ORDER - UNITED HORMONE*
 --------------------------------
 *CUSTOMER INFORMATION:*
-👤 *Name:* ${name.trim()}
-📞 *Phone:* ${phone.trim()}
-📍 *Delivery Address:* ${fullAddress}
-${notes.trim() ? `📝 *Notes:* ${notes.trim()}\n` : ""}
+*Name:* ${name.trim()}
+*Phone:* ${phone.trim()}
+*Delivery Address:* ${fullAddress}
+${notes.trim() ? `*Notes:* ${notes.trim()}\n` : ""}
 --------------------------------
 *ORDER DETAILS:*
 ${orderItems}
 
-💵 *Subtotal:* $${currentSubtotal.toFixed(2)}
-📦 *Discreet Express Shipping:* ${shippingAmount === 0 ? "FREE" : `$${shippingAmount.toFixed(2)}`}
-💰 *FULL & FINAL TOTAL AMOUNT:* $${finalPrice.toFixed(2)}
+*Subtotal:* $${currentSubtotal.toFixed(2)}
+*Discreet Express Shipping:* ${shippingAmount === 0 ? "FREE" : `$${shippingAmount.toFixed(2)}`}
+*FULL & FINAL TOTAL AMOUNT:* $${finalPrice.toFixed(2)}
 --------------------------------
 Please confirm order availability and payment dispatch!`;
 
@@ -271,7 +271,7 @@ Please confirm order availability and payment dispatch!`;
               <span>SEND ORDER TO WHATSAPP (${finalPrice > 0 ? `$${finalPrice.toFixed(2)}` : receiverWhatsApp})</span>
             </button>
             <p className="text-[10px] text-center text-white/40 mt-2">
-              🔒 Encrypted &amp; dispatched directly to our operator.
+              Encrypted &amp; dispatched directly to our operator.
             </p>
           </div>
         </form>

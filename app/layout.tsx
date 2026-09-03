@@ -25,6 +25,14 @@ export const metadata: Metadata = {
     "Batch Verification",
     "Pharmaceutical Grade",
   ],
+  icons: {
+    icon: [
+      { url: "/united-logo.webp?v=2", type: "image/webp" },
+      { url: "/favicon.ico?v=2" },
+    ],
+    shortcut: "/united-logo.webp?v=2",
+    apple: "/united-logo.webp?v=2",
+  },
 };
 
 import { CartProvider } from "@/context/CartContext";
