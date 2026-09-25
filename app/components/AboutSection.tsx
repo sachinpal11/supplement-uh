@@ -108,14 +108,14 @@ export const AboutSection: React.FC = () => {
           data-scroll-speed="-0.5"
           className="relative text-center max-w-5xl mx-auto px-4 z-20 will-change-transform"
         >
-          <h3 className="font-bebas text-[clamp(32px,4.8vw,60px)] leading-[1.02] tracking-wider uppercase text-white drop-shadow-[0_6px_35px_rgba(0,0,0,0.95)]">
-            ENGINEERED WITH PURPOSE.
+          <h3 className="font-bebas text-[clamp(32px,4.8vw,70px)] leading-[1.02] tracking-wider uppercase text-white drop-shadow-[0_6px_35px_rgba(0,0,0,0.95)]">
+            START STRENGTH HERE.
             <br />
-            <span className="text-white/90">BUILT WITHOUT COMPROMISE.</span>
+            <span className="text-white/90">BUILT FOR NO LIMIT.</span>
           </h3>
 
-          <p className="mt-5 md:mt-7 max-w-lg mx-auto text-[12px] md:text-[13px] text-[#9CA3AF] leading-[1.65] tracking-wide font-sans text-center drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-            United Hormone is built for people who take their training seriously. We focus on quality, consistency, and authenticity at every step, from carefully selected ingredients to controlled manufacturing and secure product verification. Because behind every physique is hard work, and every detail counts.
+          <p className="mt-5 md:mt-7 max-w-lg mx-auto text-[12px] md:text-[16px] text-[#9CA3AF] leading-[1.65] tracking-wide font-sans text-center drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            You put in the work. We build what fuels it. United Hormones is made for those who train with purpose, stay consistent, and refuse to settle. No shortcuts. No empty promises. Just products built to support the work.
           </p>
         </div>
 

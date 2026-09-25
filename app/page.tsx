@@ -57,13 +57,10 @@ export default function Home() {
         {/* Third Component: Quality & Innovation Commitment Section */}
         <QualitySection />
 
-        {/* Featured Products Catalog */}
-        <div id="products" className="-mb-20">
-          <ProductCatalog title="FEATURED PRODUCTS" />
+        {/* Products Catalog */}
+        <div id="products">
+          <ProductCatalog title="NEW ARRIVALS" />
         </div>
-
-        {/* New Arrivals Catalog */}
-        <ProductCatalog title="NEW ARRIVALS" />
 
         {/* Premium & Minimal FAQ Section */}
         <FaqSection />

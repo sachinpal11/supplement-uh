@@ -86,7 +86,7 @@ export const QualitySection: React.FC = () => {
 
         {/* Big Heading Text */}
         <h2 className="font-bebas text-[clamp(36px,5.2vw,72px)] leading-[1.02] tracking-wider uppercase text-white drop-shadow-[0_6px_35px_rgba(0,0,0,0.95)]">
-          BUILT ON QUALITY. DRIVEN BY INNOVATION.
+          BUILT FOR STRENGTH. DRIVEN BY DISCIPLINE.
         </h2>
 
         {/* Accent Divider Rule */}
@@ -94,13 +94,13 @@ export const QualitySection: React.FC = () => {
         {/* Paragraph Block */}
         <div className="max-w-3xl mx-auto space-y-4 font-sans text-[13px] md:text-[15px] text-[#E8E4DD]/95 leading-[1.75] tracking-wide font-normal drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] text-center">
           <p>
-            Our commitment begins with precision manufacturing and ends with customer confidence.
+            Strength starts with the work. We build products to be part of it.
           </p>
           <p>
-            Every formulation is developed using carefully selected ingredients and produced under controlled manufacturing conditions designed to maintain consistency, reliability, and product integrity.
+            Every formulation is made with purpose, using carefully selected ingredients and controlled processes to deliver consistency in every serving.
           </p>
           <p>
-            From research and quality assurance to secure authentication, every step reflects our commitment to delivering products that meet the highest expectations.
+            No empty promises. No unnecessary noise. Just products built for people who train hard, stay disciplined, and refuse to accept a limit.
           </p>
         </div>
 
